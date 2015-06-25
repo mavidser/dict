@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta "charset=UTF-8" />
+
+    <style>
+      .main-container {
+        padding-top: 150px;
+        text-align: center;
+        
+      }
+      input.main-input {
+        border: 1px solid #ddd;
+        width: 300px;
+        padding: 0.6em 1.2em;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1em;
+        letter-spacing: 1px;
+        display: inline-block;
+        margin: 3px 2px;
+        border-radius: 2px;
+      }
+
+      input.main-submit {
+        border: 1px solid #4E4B7F;
+        padding: 0.6em 1.2em;
+        background: #5F5E6E;
+        color: #fff;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1em;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        display: inline-block;
+        margin: 3px 2px;
+        border-radius: 2px;
+      }
+      select.main-submit {
+        border: 1px solid #4E4B7F;
+        padding: 0.54em 1.2em;
+        background: #5F5E6E;
+        color: #fff;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1em;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        display: inline-block;
+        margin: 3px 2px;
+        border-radius: 2px;
+      }
+      .result {
+        margin: 50px;
+      }
+      span#answer {
+        font-size: 5em;
+      }
+    </style>
+    <style href="jquery.typeahead.min.css"></style>
+
+  </head>
+  <body>
+    <div class="main-container">
+      <form id="dict_form">
+        <input id="english_input" type="text" placeholder="Enter the English word" name="id" class="main-input" type="search" autocomplete="off">
+        <select class="main-submit" name="language" id="language">
+          <option value="hindi">Hindi</option>
+          <option value="telugu">Telugu</option>
+          <option value="bengali">Bengali</option>
+        </select>
+        <!-- <input type="submit" value="Search" class="main-submit"> -->
+      </form>
+      <div class="result">
+        <span id="answer">একটি</span>
+      </div>
+    </div>
+  </body>
+  <!-- <script src="jquery.js"></script> -->
+  <script src="dictionary.json"></script>
+  <!-- <script src="jquery.typeahead.js"></script> -->
+  <script>
+    document.getElementById("language").onchange = document.getElementById("dict_form").onsubmit = function enter() {
+      try {
+        document.getElementById("answer").innerHTML = words_list[document.getElementById("english_input").value.toLowerCase()][document.getElementById("language").value];
+        // alert("document.getElementById().value()");
+      } catch(err) {
+        document.getElementById("answer").innerHTML = "There's something wrong.<br>Can you hear me Major Tom?"
+      }
+      return false;
+    };
+  </script>
+</html>
