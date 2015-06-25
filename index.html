@@ -72,7 +72,7 @@
         <!-- <input type="submit" value="Search" class="main-submit"> -->
       </form>
       <div class="result">
-        <span id="answer">Enter any word (before <i>adult</i>, alphabetically)</span>
+        <span id="answer">Enter any word (before <i>adult</i>, alphabetically).<br><a href="list.txt">Current list of words</a></span>
       </div>
     </div>
   </body>
@@ -96,7 +96,7 @@
         document.getElementById("answer").innerHTML = element_dict;
         // alert("document.getElementById().value()");
       } catch(err) {
-        document.getElementById("answer").innerHTML = "There's something wrong. Can't find the word."
+        document.getElementById("answer").innerHTML = "There's something wrong. Can't find the word.<br><a href='list.txt'>Current list of words</a>"
       }
       return false;
     };
